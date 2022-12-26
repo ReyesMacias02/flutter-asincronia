@@ -2,9 +2,9 @@ import 'package:asincronia/services/mockapi.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'Container.dart';
-import 'FisherPrice.dart';
-import 'hyundai.dart';
+import 'widgets/Container.dart';
+import 'widgets/FisherPrice.dart';
+import 'widgets/hyundai.dart';
 
 void main() => runApp(const MyApp());
 

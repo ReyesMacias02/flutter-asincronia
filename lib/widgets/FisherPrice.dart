@@ -5,8 +5,8 @@ import 'dart:math';
 import 'package:asincronia/services/mockapi.dart';
 import 'package:flutter/material.dart';
 
-class Hyundai extends StatefulWidget {
-  const Hyundai({Key? key}) : super(key: key);
+class FisherPrice extends StatefulWidget {
+  const FisherPrice({Key? key}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -21,19 +21,19 @@ class Hyundai extends StatefulWidget {
   _ListScreenState createState() => _ListScreenState();
 }
 
-class _ListScreenState extends State<Hyundai> {
+class _ListScreenState extends State<FisherPrice> {
   // Ststatic const String _title = 'Flutter Code Sample';
   double _width = 0;
   int resultado = 0;
   bool _textoActivo = false;
-  Color _color = Colors.orange;
+  Color _color = Colors.redAccent;
   bool _isExpanded = false;
   BorderRadiusGeometry _borderRadius = BorderRadius.circular(8);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: Colors.transparent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -41,21 +41,21 @@ class _ListScreenState extends State<Hyundai> {
               width: 90,
               height: 90,
               decoration: const ShapeDecoration(
-                color: Colors.orange,
+                color: Colors.redAccent,
                 shape: CircleBorder(),
               ),
               child: IconButton(
                 icon: Icon(
-                  Icons.airport_shuttle,
+                  Icons.directions_walk,
                   color: Colors.black,
                   size: 50.0,
                 ),
-                color: Colors.white,
+                color: Colors.transparent,
                 onPressed: () async {
                   _toggleExpand();
-                  resultado = await MockApi().getHyundaiInteger() as int;
+                  resultado = await MockApi().getFisherPriceInteger() as int;
                   refresh();
-                  await Future.delayed(Duration(seconds: 3));
+                  await Future.delayed(Duration(seconds: 10));
 
                   _textoActivo = true;
 
@@ -74,10 +74,10 @@ class _ListScreenState extends State<Hyundai> {
               height: 15,
 
               decoration: BoxDecoration(
-                color: _color,
+                color: Colors.redAccent,
               ),
               // Define la duración de la animación.
-              duration: Duration(seconds: _isExpanded ? 3 : 0),
+              duration: Duration(seconds: _isExpanded ? 10 : 0),
 
               // Proporciona una curva opcional para hacer que la animación se sienta más suave.
             ),
@@ -93,7 +93,7 @@ class _ListScreenState extends State<Hyundai> {
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
-                  color: Colors.orange),
+                  color: Colors.redAccent),
             ),
           ],
         ));
